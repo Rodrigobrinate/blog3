@@ -1,0 +1,22 @@
+<%- include('partials/header', { tituloSeo: 'Página Inicial - Meu Blog' }) %>
+
+<ul class="article-list">
+    <% if (artigos.length > 0) { %>
+        <% artigos.forEach(artigo => { %>
+            <li class="article-list-item">
+                <a href="/artigo/<%= artigo.slug %>">
+                    <h2><%= artigo.titulo %></h2>
+                </a>
+                <p class="meta-info">
+                    Publicado em: <%= new Date(artigo.data_criacao).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' }) %>
+                </p>
+            </li>
+        <% }) %>
+    <% } else { %>
+        <li>
+            <p>Nenhum artigo publicado ainda. Crie o primeiro através da API!</p>
+        </li>
+    <% } %>
+</ul>
+
+<%- include('partials/footer') %>

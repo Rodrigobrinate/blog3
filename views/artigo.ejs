@@ -1,0 +1,19 @@
+<%- include('partials/header', {
+    tituloSeo: artigo.titulo,
+    metaDescription: metaDescription,
+    palavrasChavesSeo: artigo.palavras_chaves,
+    urlCanonica: urlCanonica,
+    ogType: 'article'
+}) %>
+
+<article>
+    <h1><%= artigo.titulo %></h1>
+    <p><strong>Palavras-chave:</strong> <%= artigo.palavras_chaves.join(', ') %></p>
+    <small>Publicado em: <%= new Date(artigo.data_criacao).toLocaleDateString('pt-BR') %></small>
+
+    <div class="conteudo" style="margin-top: 20px;">
+        <%- artigo.conteudo %>
+    </div>
+</article>
+
+<%- include('partials/footer') %>

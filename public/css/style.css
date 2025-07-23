@@ -1,0 +1,165 @@
+/* public/css/style.css */
+
+/* --- Configurações Globais e Reset --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  background-color: #f8f9fa; /* Um cinza bem claro para o fundo */
+  color: #343a40; /* Um cinza escuro para o texto, mais suave que o preto puro */
+}
+
+/* --- Layout Principal --- */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Cabeçalho e Rodapé --- */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 20px;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: #212529;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #dee2e6;
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+/* --- Tipografia e Links --- */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: #212529;
+}
+
+/* --- Estilos da Página Inicial (Lista de Artigos) --- */
+.article-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-list-item {
+  padding: 25px 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.article-list-item:last-child {
+  border-bottom: none;
+}
+
+.article-list-item h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.8em;
+}
+
+.article-list-item a {
+  text-decoration: none;
+  color: #212529;
+}
+
+.article-list-item a:hover h2 {
+  color: #007bff;
+}
+
+.meta-info {
+  font-size: 0.85em;
+  color: #6c757d;
+  font-style: italic;
+}
+
+
+/* --- Estilos da Página do Artigo --- */
+.article-header h1 {
+  font-size: 2.8em;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.article-meta .keywords span {
+  background-color: #e9ecef;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.85em;
+  margin-right: 5px;
+}
+
+.article-body {
+  font-size: 1.1em;
+}
+
+.article-body p {
+  margin-bottom: 1.5em;
+}
+
+.article-body strong {
+  color: #212529;
+}
+
+.article-body a {
+  text-decoration: underline;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+  .container {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  .article-header h1 {
+    font-size: 2.2em;
+  }
+}
