@@ -180,5 +180,5 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando em ${SITE_URL}`);
   
   // Cria o sitemap do zero quando o servidor é iniciado.
-  //criarSitemapInicial();
+  criarSitemapInicial();
 });
