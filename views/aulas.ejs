@@ -1,0 +1,52 @@
+<%- include('partials/header', { tituloSeo: curso.nome }) %>
+
+<link rel="stylesheet" href="/css/aulas.css">
+
+<main class="aulas-page-container" id="<%= curso.id %>">
+    
+    <header class="aulas-header">
+        <img src="<%= curso.imagem %>" alt="Banner do curso <%= curso.nome %>" class="aulas-banner">
+        <h1><%= curso.nome %></h1>
+    </header>
+
+    <div class="aulas-content">
+        <h2>Aulas do curso</h2>
+        <p>Marque as aulas que você já concluiu para acompanhar seu progresso.</p>
+
+        <ul class="aulas-list">
+            <% curso.aulas.forEach(aula => { %>
+                 <% if (aula.aslug && aula.aslug.trim() !== '') { %>
+                <li>
+                    <input type="checkbox" 
+                           id="<%= aula.id %>"
+                           data-curso-id="<%= curso.id %>">
+                        
+                    <a href="/learn/<%= aula.aslug %>"><label "><%= aula.nome %></label></a>
+                    
+                </li>
+
+                <% } else { %>
+                     <li>
+                    
+                        
+                    <label "><%= aula.nome %></label>
+                    
+                </li>
+                <% } %>
+            <% }) %>
+        </ul>
+
+        <div class="progresso-container">
+            <h3>Seu Progresso:</h3>
+            <div class="progresso-barra">
+                <div class="progresso-preenchimento"></div>
+            </div>
+            <span class="progresso-percentual">0%</span>
+        </div>
+    </div>
+
+</main>
+
+<script src="/js/progresso.js"></script>
+
+<%- include('partials/footer') %>

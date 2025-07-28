@@ -4,9 +4,13 @@
     <% if (artigos.length > 0) { %>
         <% artigos.forEach(artigo => { %>
             <li class="article-list-item">
-                <a href="/artigo/<%= artigo.slug %>">
+               
+               
+                <a  href="/artigo/<%= artigo.slug %>" > 
                     <h2><%= artigo.titulo %></h2>
                 </a>
+
+                
                 <p class="meta-info">
                     Publicado em: <%= new Date(artigo.data_criacao).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' }) %>
                 </p>

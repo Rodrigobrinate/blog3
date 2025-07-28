@@ -1,0 +1,33 @@
+<%- include('partials/header', { tituloSeo: 'Nossos Cursos' }) %>
+
+<link rel="stylesheet" href="/css/cursos.css">
+
+<div class="cursos-container">
+    <h1>Trilhas de Conhecimento</h1>
+
+    <% if (secoes && secoes.length > 0) { %>
+        <% secoes.forEach(secao => { %>
+            <section class="curso-secao">
+                <h2><%= secao.tituloSecao %></h2>
+                <div class="cursos-grid">
+                    <% secao.cursos.forEach(curso => { %>
+                        <a href="/curso/<%= curso.id %>" class="curso-card-link">
+                            <div class="curso-card">
+                                <img  src="<%= curso.imagem %>" alt="Capa do curso <%= curso.nome %>">
+                                <div class="curso-info">
+                                    <h3><%= curso.nome %></h3>
+                                    <p><%= curso.descricao %></p>
+                                    <span class="ver-aulas-btn">Ver aulas</span>
+                                </div>
+                            </div>
+                        </a>
+                    <% }) %>
+                </div>
+            </section>
+        <% }) %>
+    <% } else { %>
+        <p>Nenhuma trilha de cursos disponível no momento.</p>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>

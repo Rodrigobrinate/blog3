@@ -8,47 +8,19 @@
 
 <article>
     <h1 id="title"><%= artigo.titulo %></h1>
-    <p><strong>Palavras-chave:</strong> <%= artigo.palavras_chaves.join(', ') %></p>
-    <small>Publicado em: <%= new Date(artigo.data_criacao).toLocaleDateString('pt-BR') %></small>
+    <p><strong>Palavras-chave:</strong> <%= artigo.palavras_chaves %></p>
+    <% if (artigo.data_criacao) { %>
+        
+    <small>Publicado em: <%= new Date(artigo.data_criacao).toLocaleDateString('pt-BR')  %></small>
+    <% } else { %>
+        <small>Publicado em: <%= new Date().toLocaleDateString('pt-BR') %></small>
+    <% } %>
 
     <div class="conteudo" style="margin-top: 20px;">
         <%- artigo.conteudo %>
     </div>
 </article>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/D8oaKHg9kMw?si=rZlfeQGuLxQeEV5F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<script>
-const dadosParaEnviar = {
-      content: document.getElementById("title").innerText // A chave 'minhaPalavra' pode ser qualquer nome que sua API espera
-    };
-fetch('https://n8n.acesse.rodrigobrinate.com.br/webhook/c942bb6f-d493-4ab1-bb35-fe486270a4ab',{
-      method: 'POST', // Define o método como POST
-      headers: {
-        'Content-Type': 'application/json' // Indica que o corpo da requisição é JSON
-        // Você pode adicionar outros cabeçalhos aqui, como 'Authorization'
-      },
-      body: JSON.stringify(dadosParaEnviar)})// Substitua pela sua URL
-  .then(response => {
-    // Verifica se a requisição foi bem-sucedida (status 200-299)
-    if (!response.ok) {
-      throw new Error(`Erro HTTP! Status: ${response.status}`);
-    }
-    
-    
-    // Converte a resposta para JSON
-    return response.json();
-  })
-  .then(data => {
-    // Lida com os dados da resposta
-    console.log('Dados recebidos:', data[0]);
-    document.querySelector("iframe").src = "https://www.youtube.com/embed/" + data[0].id.videoId
-    
-    
-  })
-  .catch(error => {
-    // Lida com erros da requisição
-    console.error('Ocorreu um erro na requisição fetch:', error);
-  });
 
-</script>
+
 
 <%- include('partials/footer') %>
