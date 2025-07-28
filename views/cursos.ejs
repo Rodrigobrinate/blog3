@@ -10,10 +10,10 @@
             <section class="curso-secao">
                 <h2><%= secao.tituloSecao %></h2>
                 <div class="cursos-grid">
-                    <% secao.cursos.forEach(curso => { %>
+                    <% secao.cursos.forEach((curso, i) => { %>
                         <a href="/curso/<%= curso.id %>" class="curso-card-link">
                             <div class="curso-card">
-                                <img  src="<%= curso.imagem %>" alt="Capa do curso <%= curso.nome %>">
+                                <img  src="/imagens_cursos/<%= curso.imagem.split("/")[curso.imagem.split("/").length - 1] %>" alt="Capa do curso <%= curso.nome %>">
                                 <div class="curso-info">
                                     <h3><%= curso.nome %></h3>
                                     <p><%= curso.descricao %></p>
